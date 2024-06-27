@@ -1,26 +1,22 @@
+// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoView from './views/TodoView';
+import useTodoViewModel from './viewmodels/TodoViewModel';
 
-function App() {
+const App: React.FC = () => {
+  const todoViewModel = useTodoViewModel();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="text-2xl font-bold mb-4">ToDo List</h1>
+      <TodoView
+        items={todoViewModel.items}
+        addItem={todoViewModel.addItem}
+        removeItem={todoViewModel.removeItem}
+        toggleItemCompletion={todoViewModel.toggleItemCompletion}
+      />
     </div>
   );
-}
+};
 
 export default App;
