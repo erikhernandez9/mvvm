@@ -8,7 +8,6 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1 className="text-2xl font-bold mb-4">ToDo List</h1>
       <TodoView
         items={todoViewModel.items}
         addItem={todoViewModel.addItem}
